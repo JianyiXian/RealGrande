@@ -20,7 +20,7 @@ const SearchFilter = (props) => {
     return (
         <div className="text-center p-3">
             <b className="mx-3"> Select county</b>
-            <select onChange={e => changeHandler(e)}>
+            <select className='select' onChange={e => changeHandler(e)}>
                 <option key='select' value='select'> Select </option>
                 {distinCounties.map(county => (<option key={county} value={county}>{county}</option>))}
             </select>

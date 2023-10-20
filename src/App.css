@@ -40,3 +40,7 @@
 .tagline {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.content {
+  height: 800px;
+}

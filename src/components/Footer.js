@@ -1,6 +1,6 @@
 const Footer = () => {
-    return (<footer className='bg-light'>
-        copyright reserved by Jennifer
+    return (<footer className='bg-light text-center'>
+        © copyright reserved by Real Grande
     </footer>);
 }
 

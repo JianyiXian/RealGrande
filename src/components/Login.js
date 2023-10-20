@@ -1,7 +1,8 @@
 import { useState } from "react";
+import axios from 'axios'
 
 const Login = () => {
-    const [formObj, setFormObj] = useState({ username: '', password: '' })
+    const [formObj, setFormObj] = useState({ email: '', password: '' })
 
     const fomrHandler = (e) => {
         setFormObj({ ...formObj, [e.target.name]: e.target.value });
@@ -11,14 +12,26 @@ const Login = () => {
     const clickHandler = (e) => {
         e.preventDefault();
         console.log(formObj)
+        const authCheck = async () => {
+            try {
+                // send the post request to the backend
+                const resp = await axios.post('http://localhost:3002/login', { ...formObj });
+                const userData = resp.data;
+                console.log("user", userData);
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        authCheck();
+
 
     }
     return (
         <div className="d-flex justify-content-center">
             <form className="w-25">
                 <div className="mb-3">
-                    <label htmlFor="username" className="form-label">Username</label>
-                    <input type="text" name="username" id="username" className="form-control" onChange={e => fomrHandler(e)} />
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input type="text" name="email" id="email" className="form-control" onChange={e => fomrHandler(e)} />
 
                 </div>
                 <div className="mb-3">
