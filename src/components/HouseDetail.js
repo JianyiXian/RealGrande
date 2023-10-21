@@ -1,3 +1,5 @@
+import Enquiry from "./Enquiry";
+
 const HouseDetail = (props) => {
 
     return (
@@ -8,6 +10,7 @@ const HouseDetail = (props) => {
                 </div>
                 <div className='col-md-6'>
                     <p>{props.houseInfo.description}</p>
+                    <Enquiry />
                 </div>
 
             </div>

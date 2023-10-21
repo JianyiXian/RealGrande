@@ -1,31 +1,43 @@
 import { useState } from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
+
+
 
 const Login = () => {
     const [formObj, setFormObj] = useState({ email: '', password: '' })
+    const [isLogin, setIsLogin] = useState(false);
+
+    const navigate = useNavigate();
 
     const fomrHandler = (e) => {
         setFormObj({ ...formObj, [e.target.name]: e.target.value });
 
     }
 
-    const clickHandler = (e) => {
+    const clickHandler = async (e) => {
         e.preventDefault();
         console.log(formObj)
-        const authCheck = async () => {
-            try {
-                // send the post request to the backend
-                const resp = await axios.post('http://localhost:3002/login', { ...formObj });
-                const userData = resp.data;
-                console.log("user", userData);
-            } catch (err) {
-                console.log(err)
+
+        try {
+            // send the post request to the backend
+            const resp = await axios.post('http://localhost:3002/login', { ...formObj });
+            const userData = resp.data;
+            console.log("user", userData);
+
+            if (userData != 'Authentication Failed') {
+                navigate('/');
+                setIsLogin(true);
             }
+
+        } catch (err) {
+            console.log(err)
         }
-        authCheck();
 
 
     }
+
+
     return (
         <div className="d-flex justify-content-center">
             <form className="w-25">
