@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const Signup = () => {
 
@@ -22,7 +23,6 @@ const Signup = () => {
 
             if (userData) {
                 setIsSignup(true)
-                setErrMessage('')
             }
 
         } catch (err) {
@@ -53,7 +53,7 @@ const Signup = () => {
                 <button className='btn btn-light' type='submit' onClick={e => clickHandler(e)}>Sign up</button>
             </form>}
 
-            {isSignup && <h5>Hello, {formObj.name}! You are now a member of RealGrande.</h5>}
+            {isSignup && <h5>Hello, {formObj.name}! You are now a member of RealGrande. <Link to='/login'>Login</Link> now.</h5>}
 
         </div >
     );

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [formObj, setFormObj] = useState({ email: '', password: '' })
-    const [isLogin, setIsLogin] = useState(false);
+    const [message, setMessage] = useState();
 
     const navigate = useNavigate();
 
@@ -17,17 +17,24 @@ const Login = () => {
 
     const clickHandler = async (e) => {
         e.preventDefault();
-        console.log(formObj)
 
         try {
             // send the post request to the backend
             const resp = await axios.post('http://localhost:3002/login', { ...formObj });
             const userData = resp.data;
-            console.log("user", userData);
 
-            if (userData != 'Authentication Failed') {
-                navigate('/');
-                setIsLogin(true);
+            if (userData === 'Authentication Failed') {
+                setMessage('Invalid email or password!')
+            } else {
+                sessionStorage.setItem('cusName', userData.name);
+                sessionStorage.setItem('custEmail', userData.email);
+                sessionStorage.setItem('role', userData.role);
+                if (userData.role === 'customer') {
+                    navigate('/');
+                } else if (userData.role === 'realtor') {
+                    navigate('/enquries')
+                }
+
             }
 
         } catch (err) {
@@ -36,8 +43,6 @@ const Login = () => {
 
 
     }
-
-
     return (
         <div className="d-flex justify-content-center">
             <form className="w-25">
@@ -51,6 +56,7 @@ const Login = () => {
                     <input type="password" name="password" id="password" className="form-control" onChange={e => fomrHandler(e)} />
 
                 </div>
+                <p className="text-danger">{message}</p>
                 <button className='btn btn-light' type='submit' onClick={e => clickHandler(e)}>Login</button>
             </form>
 

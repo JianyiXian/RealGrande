@@ -1,16 +1,17 @@
 import './App.css';
-import HouseDetail from './components/HouseDetail';
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import axios from 'axios'
+
+import HouseDetail from './components/HouseDetail';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Search from './components/Search';
 import SearchFilter from './components/SearchFilter';
-import { Route, Routes } from 'react-router-dom';
 import Searchresults from './components/Searchresults';
 import SearchHouseDetail from './components/SearchHouseDetails';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import axios from 'axios'
+import EnquiryList from './components/EnquiryList';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           <Route path='/searchHouseDetail/:id' element={houseData && <SearchHouseDetail houses={houseData} />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/enquries' element={<EnquiryList />} />
         </Routes>
       </div>
       <Footer />

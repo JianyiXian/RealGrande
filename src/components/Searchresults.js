@@ -20,7 +20,7 @@ const Searchresults = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filterHouses.map(house => <SearchResultRow house={house} />)}
+                        {filterHouses.map(house => <SearchResultRow house={house} key={house.id} />)}
                     </tbody>
                 </table>
             </div>

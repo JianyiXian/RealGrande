@@ -2,6 +2,8 @@ import Enquiry from "./Enquiry";
 
 const HouseDetail = (props) => {
 
+    const currentURL = window.location.href
+
     return (
         <div className='container'>
             <div className='row pb-2'>
@@ -10,7 +12,7 @@ const HouseDetail = (props) => {
                 </div>
                 <div className='col-md-6'>
                     <p>{props.houseInfo.description}</p>
-                    <Enquiry />
+                    {sessionStorage.getItem('cusName') && sessionStorage.getItem('role') === 'customer' && currentURL !== 'http://localhost:3000/' && < Enquiry house={props.houseInfo._id} />}
                 </div>
 
             </div>
