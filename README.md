@@ -21,7 +21,7 @@ The following **required** functionality is completed:
 
 ## Flow Chart
 
-<img src='![image](https://github.com/JianyiXian/RealGrande/assets/104037920/a2a4b020-ee87-45dc-a88f-99b9141b2dbe)' title='Flow Chart' width='' alt='Video Walkthrough' />
+<img src='https://github.com/JianyiXian/RealGrande/assets/104037920/a2a4b020-ee87-45dc-a88f-99b9141b2dbe' title='Flow Chart' width='' alt='Flow Chart' />
 
 
 ## License
