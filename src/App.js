@@ -28,7 +28,7 @@ function App() {
 
         // const data = await response.json();
 
-        const response = await axios.get('http://localhost:3002/');
+        const response = await axios.get(process.env.REACT_APP_BACKEND_URL);
         const data = await response.data;
 
         // Write the data to the state so we can use it anywhere in the component

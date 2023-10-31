@@ -20,7 +20,7 @@ const Login = () => {
 
         try {
             // send the post request to the backend
-            const resp = await axios.post('http://localhost:3002/login', { ...formObj });
+            const resp = await axios.post(process.env.REACT_APP_BACKEND_URL + 'login', { ...formObj });
             const userData = resp.data;
 
             if (userData === 'Authentication Failed') {

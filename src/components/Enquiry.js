@@ -15,7 +15,7 @@ const Enquiry = (props) => {
     const clickHandler = async e => {
         e.preventDefault();
         try {
-            const resp = await axios.post('http://localhost:3002/register', { ...enquiryData });
+            const resp = await axios.post(process.env.REACT_APP_BACKEND_URL + 'register', { ...enquiryData });
             const data = resp.data;
             setSuccessMsg('You have successful submit the enquiry.');
             setIsSubmit(true);

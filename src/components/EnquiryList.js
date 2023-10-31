@@ -8,7 +8,7 @@ const EnquiryList = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3002/allenquiry');
+                const response = await axios.get(process.env.REACT_APP_BACKEND_URL + 'allenquiry');
                 console.log(response);
                 const data = await response.data;
                 setEnquiryData(data);
