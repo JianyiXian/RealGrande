@@ -22,7 +22,7 @@ const Header = () => {
 
                 </div>
                 <div className="col-sm-5">
-                    <h1 className="tagline text-light"> Your real estate destination!</h1>
+                    <h1 className="tagline text-light"> Welcome!!! Your real estate destination!</h1>
                 </div>
                 <div className="col-sm-4 text-end">
                     {sessionStorage.getItem('cusName') ? <>
